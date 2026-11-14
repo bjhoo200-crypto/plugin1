@@ -1,0 +1,16 @@
+# 다른 플러그인 아이템 id (item_model / 커스텀 데이터 등에서 이 id를 찾아 비교함)
+items:
+  steel: "machines:steel"
+  steel_bolt: "machines:steel_bolt"
+  gearbox: "props:gearbox"
+  refined_oil: "machines:refined_oil"
+
+cannon:
+  require-oil: false      # true 로 바꾸면 정제유가 있어야 쏠 수 있음 (지금은 기름 없이 발사)
+  load-seconds: 5          # 장전 시간
+  max-oil: 10              # 최대 정제유(L)
+  oil-per-shot: 1          # 한 발당 소모
+  turn-speed-yaw: 2.0      # 좌우 회전 속도 (도/틱, 일반 시점보다 느림)
+  turn-speed-pitch: 1.2    # 상하 회전 속도
+  projectile-speed: 2.5
+  explosion-power: 4.0     # 블럭 파괴는 항상 꺼져 있음
