@@ -1,0 +1,72 @@
+# 다른 플러그인 아이템 id (item_model / 커스텀 데이터 등에서 이 id를 찾아 비교함)
+items:
+  steel: "machines:steel"
+  steel_plate: "machines:steel_plate"
+  gearbox: "props:gearbox"
+  refined_oil: "machines:refined_oil"
+
+cannon:
+  require-oil: true       # true: 정제유가 있어야 쏠 수 있음 / false: 기름 없이 발사
+  load-seconds: 5          # 장전 시간
+  oil-capacity: 5          # 최대 정제유(L)
+  oil-per-shot: 1          # 한 발당 소모
+  turn-speed-yaw: 2.0      # 좌우 회전 속도 (도/틱, 일반 시점보다 느림)
+  turn-speed-pitch: 1.2    # 상하 회전 속도
+  projectile-speed: 2.5
+  range-scale: 0.6         # 사거리 배율 (1.0 = 원래 사거리, 0.6 = 60%)
+  ball-model: "cannon:ball"   # 대포알 아이콘 (리소스팩 필요). 비우면 기본 화염구 모양
+  explosion-power: 4.0     # 피해량 기준 (블럭 파괴는 항상 꺼져 있음)
+  blast-radius-scale: 1.5  # 폭발 범위 배율 (1.0 = 기본, 1.5 = 1.5배). 피해량은 그대로, 닿는 반경만 커짐
+
+# 함선 (속도 단위: 블록/틱, 20틱 = 1초. 바닐라 보트는 약 0.4)
+ship:
+  fuel-seconds-per-liter: 60   # 연료 1L로 달리는 시간(초). 60 = 1분에 1L
+  drag: 0.97           # 운전 중 키를 뗐을 때 감속 (작을수록 빨리 멈춤)
+  fast:                # 쾌속선
+    max-speed: 1.0     # 최고 속도 (= 초속 20블록)
+    max-fuel: 64       # 연료 탱크 (정제유 L)
+    accel: 0.04        # 가속
+    turn: 3.4          # 틱당 회전 각도
+  cargo:               # 화물선
+    max-speed: 0.6     # 최고 속도 (= 초속 12블록)
+    max-fuel: 128
+    accel: 0.02
+    turn: 2.2
+
+# 트랙터 (속도 단위: 블록/틱)
+tractor:
+  max-fuel: 32                  # 연료 탱크 (정제유 L)
+  fuel-seconds-per-liter: 60    # 전진/후진 키를 누르는 동안 60초에 1L 소모
+  max-speed: 0.28               # 최고 속도 (= 초속 약 5.6블록)
+  accel: 0.02
+  turn: 3.0
+  model: "cannon:tractor"   # 리소스팩 모델 id
+  model-scale: 3.0            # 모델 크기 배율 (1 = 1블럭 길이)
+  model-yaw: 180              # 앞뒤가 거꾸로 보이면 0 <-> 180 으로 변경
+
+# 기차 (속도 단위: 블록/틱)
+train:
+  max-speed: 0.45        # 최고 속도 (= 초속 9블록)
+  curve-speed: 0.3       # 급한 곡선 구간 속도
+  accel: 0.008
+  brake: 0.03
+  coal-seconds: 80       # 석탄/숯 1개 연소 시간(초). 석탄블럭은 10배
+  oil-seconds: 120       # 정제유 1개 연소 시간(초)
+  track-bed: GRAVEL      # /train give track 으로 받는 철로 기본 바닥 블럭
+
+# 리소스팩 자동 전송 (접속할 때 추가로 보냄. 서버의 다른 팩은 그대로 유지됨)
+# url 을 비워 두면 보내지 않음. sha1 은 팩 zip 의 SHA-1 (40자리 16진수)
+resource-pack:
+  url: ""
+  sha1: ""
+  required: true     # true = 거부하면 접속 불가(강제), false = 선택
+
+# 야포 (1차 세계대전기 야전포 - 대포보다 사거리/폭발이 크고 장전이 빠름, 탄은 "야포탄")
+fieldgun:
+  load-seconds: 3            # 장전 시간 (대포 5초)
+  turn-speed-yaw: 2.5        # 좌우 회전 속도 (도/틱)
+  turn-speed-pitch: 1.5      # 상하 회전 속도
+  projectile-speed: 2.6      # 포탄 속도 (대포는 약 1.94) - 사거리는 속도의 제곱에 비례
+  explosion-power: 5.0       # 피해량 기준 (대포 4.0). 블럭 파괴 없음
+  blast-radius-scale: 1.5    # 폭발 범위 배율
+  shell-model: ""            # 야포탄 아이콘 (리소스팩 모델 id, 비우면 기본 구리 주괴 모양)

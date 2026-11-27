@@ -1,0 +1,25 @@
+name: CannonPlugin
+version: 1.0.0
+main: kr.example.cannon.CannonPlugin
+api-version: '1.21'
+description: 앉아서 쏘는 대포
+commands:
+  cannon:
+    description: 대포 관련 명령어
+    usage: /cannon give <cannon|ball|fieldgun|shell> [개수]  |  /cannon id
+    permission: cannon.admin
+  ship:
+    description: 함선 관련 명령어
+    usage: /ship give <fast|cargo>
+    permission: cannon.admin
+  tractor:
+    description: 트랙터 관련 명령어
+    usage: /tractor give
+    permission: cannon.admin
+  train:
+    description: 기차 관련 명령어
+    usage: /train give <track|loco|cargo|pass>
+    permission: cannon.admin
+permissions:
+  cannon.admin:
+    default: op
